@@ -28,9 +28,10 @@ class TestSimpleGuessingStrategy(TestCase):
 
     def test_it_will_check_letters(self):
         guesser = SimpleGuessingStrategy('hang')
-        self.assertFalse(guesser.guess_is_correct('h'))
-        self.assertFalse(guesser.guess_is_correct('a'))
-        self.assertFalse(guesser.guess_is_correct('n'))
+        self.assertTrue(guesser.guess_is_correct('h'))
+        self.assertFalse(guesser.guess_is_correct('i'))
+        self.assertTrue(guesser.guess_is_correct('a'))
+        self.assertTrue(guesser.guess_is_correct('n'))
         self.assertEquals(list('han'), guesser.get_good_guesses())
 
         self.assertTrue(guesser.guess_is_correct('g'))
