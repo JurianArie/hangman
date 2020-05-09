@@ -6,6 +6,7 @@ class SimpleGuessingStrategy(AbstractGuessingStrategy):
         super().__init__(word)
 
     def guess_is_correct(self, guess: str) -> bool:
+        self.set_guessed_correctly(False)
         guess = guess.lower()
 
         if self.guess_has_been_tried(guess):
