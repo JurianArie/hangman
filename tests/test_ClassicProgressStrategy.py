@@ -9,9 +9,9 @@ class TestClassicProgressStrategy(TestCase):
 
     def test_draw_progress(self):
         classic = ClassicProgressStrategy()
-        self.assertEqual(classic.draw_progress('word', list('w')), classic.get_hang_mans()[7] + '\nw___')
+        self.assertEqual(classic.draw_progress('word', list('w')), classic.get_hang_man_stages()[7] + '\nw___')
         classic.decrease_tries_left()
-        self.assertEqual(classic.draw_progress('word', list('wr')), classic.get_hang_mans()[6] + '\nw_r_')
+        self.assertEqual(classic.draw_progress('word', list('wr')), classic.get_hang_man_stages()[6] + '\nw_r_')
         classic.decrease_tries_left()
         classic.decrease_tries_left()
-        self.assertEqual(classic.draw_progress('word', list('wr')), classic.get_hang_mans()[4] + '\nw_r_')
+        self.assertEqual(classic.draw_progress('word', list('wr')), classic.get_hang_man_stages()[4] + '\nw_r_')

@@ -9,12 +9,11 @@ class ClassicProgressStrategy(AbstractProgressStrategy):
         super().__init__(7)
 
     def draw_progress(self, word: str, good_guesses: List[str]) -> str:
-        progress = self.get_hang_mans()[self._triesLeft]
+        progress = self.get_hang_man_stages()[self._triesLeft]
 
         return progress + '\n' + WordRevealer.reveal(word, good_guesses)
 
-    # The classic stages keyed by tries left.
-    def get_hang_mans(self):
+    def get_hang_man_stages(self):
         return {7: '''
       +---+
           |
