@@ -3,10 +3,10 @@ from typing import List
 
 
 class AbstractProgressStrategy(ABC):
-    triesLeft: int
+    _triesLeft: int
 
     def __init__(self, max_ties: int):
-        self.triesLeft = max_ties
+        self._triesLeft = max_ties
         super().__init__()
 
     @abstractmethod
@@ -14,7 +14,7 @@ class AbstractProgressStrategy(ABC):
         pass
 
     def decrease_tries_left(self) -> None:
-        self.triesLeft = self.triesLeft - 1
+        self._triesLeft = self._triesLeft - 1
 
     def get_tries_left(self) -> int:
-        return self.triesLeft
+        return self._triesLeft

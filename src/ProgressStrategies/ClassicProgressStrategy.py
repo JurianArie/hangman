@@ -9,7 +9,7 @@ class ClassicProgressStrategy(AbstractProgressStrategy):
         super().__init__(7)
 
     def draw_progress(self, word: str, good_guesses: List[str]) -> str:
-        progress = self.get_hang_mans()[self.triesLeft]
+        progress = self.get_hang_mans()[self._triesLeft]
 
         return progress + '\n' + WordRevealer.reveal(word, good_guesses)
 
