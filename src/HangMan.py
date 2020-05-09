@@ -26,10 +26,11 @@ class HangMan:
                 print('You\'ve already tried that')
                 continue
 
-            if self.guessingStrategy.guess_is_correct(guess) and self.guessingStrategy.guessed_the_word():
-                break
+            if not self.guessingStrategy.guess_is_correct(guess):
+                self.progressStrategy.decrease_tries_left()
 
-            self.progressStrategy.decrease_tries_left()
+            if self.guessingStrategy.guessed_the_word():
+                break
 
             self.draw_progress()
 

@@ -15,7 +15,14 @@ class ClassicProgressStrategy(AbstractProgressStrategy):
 
     # The classic stages keyed by tries left.
     def get_hang_mans(self):
-        return {6: '''
+        return {7: '''
+      +---+
+          |
+          |
+          |
+          |
+          |
+    =========''', 6: '''
       +---+
       |   |
           |
