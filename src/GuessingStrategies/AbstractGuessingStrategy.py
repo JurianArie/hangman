@@ -16,7 +16,7 @@ class AbstractGuessingStrategy(ABC):
         pass
 
     def guess_has_been_tried(self, guess: str) -> bool:
-        return guess in self.guesses
+        return guess.lower() in self.guesses
 
     def all_letters_have_been_guessed(self) -> bool:
         unique_letters = list(set(self.word))

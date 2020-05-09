@@ -22,8 +22,6 @@ class HangMan:
                 print('Only letter are allowed')
                 continue
 
-            guess = guess.lower()
-
             if self.guessingStrategy.guess_has_been_tried(guess):
                 print('You\'ve already tried that')
                 continue
