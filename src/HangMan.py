@@ -19,7 +19,7 @@ class HangMan:
             guess = input('Make a new guess\n')
 
             if not guess.isalpha():
-                print('Only letter are allowed')
+                print('Only letters are allowed')
                 continue
 
             if self.guessingStrategy.guess_has_been_tried(guess):

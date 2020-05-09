@@ -7,7 +7,7 @@ from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
 word = input('Enter a word\n')
 
 while not word.isalpha():
-    print('Only letter are allowed')
+    print('Only letters are allowed')
     word = input('Enter a word\n')
 
 system('clear')
