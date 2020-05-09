@@ -16,7 +16,7 @@ class TestSimpleGuessingStrategy(TestCase):
 
     def test_it_is_case_insensitive(self):
         guesser = SimpleGuessingStrategy('Word')
-        self.assertEquals('word', guesser.get_word())
+        self.assertEqual('word', guesser.get_word())
         self.assertTrue(guesser.guess_is_correct('wOrD'))
         self.assertTrue(guesser.guessed_the_word())
 
@@ -32,7 +32,8 @@ class TestSimpleGuessingStrategy(TestCase):
         self.assertFalse(guesser.guess_is_correct('i'))
         self.assertTrue(guesser.guess_is_correct('a'))
         self.assertTrue(guesser.guess_is_correct('n'))
-        self.assertEquals(list('han'), guesser.get_good_guesses())
+        self.assertEqual(list('han'), guesser.get_good_guesses())
 
         self.assertTrue(guesser.guess_is_correct('g'))
+        self.assertTrue(guesser.guessed_the_word())
         self.assertTrue(guesser.all_letters_have_been_guessed())

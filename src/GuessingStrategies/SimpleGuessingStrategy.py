@@ -16,7 +16,9 @@ class SimpleGuessingStrategy(AbstractGuessingStrategy):
 
         if len(guess) == 1 and guess in self.word:
             self.correctlyGuessedLetters.append(guess)
-            return True
+
+            # Always return true.
+            return self.all_letters_have_been_guessed() or True
         elif guess == self.word:
             return self.set_guessed_correctly(True)
 
