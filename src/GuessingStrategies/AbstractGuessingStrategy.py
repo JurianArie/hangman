@@ -9,7 +9,7 @@ class AbstractGuessingStrategy(ABC):
     guesses: List[str] = []
 
     def __init__(self, word: str) -> None:
-        self.word = word
+        self.word = word.lower()
 
     @abstractmethod
     def guess_is_correct(self, guess: str) -> bool:

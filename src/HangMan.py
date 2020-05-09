@@ -18,6 +18,12 @@ class HangMan:
         while self.has_tries_left():
             guess = input('Make a new guess\n')
 
+            if not guess.isalpha():
+                print('Only letter are allowed')
+                continue
+
+            guess = guess.lower()
+
             if self.guessingStrategy.guess_has_been_tried(guess):
                 print('You\'ve already tried that')
                 continue
