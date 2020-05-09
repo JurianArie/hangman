@@ -22,10 +22,12 @@ class HangMan:
                 print('Only letters are allowed')
                 continue
 
+            # Don't allow the same word/letter to entered twice.
             if self._guessingStrategy.guess_has_been_tried(guess):
                 print('You\'ve already tried that')
                 continue
 
+            # Only decrease the tries left on a wrong guess.
             if not self._guessingStrategy.guess_is_correct(guess):
                 self._progressStrategy.decrease_tries_left()
 
