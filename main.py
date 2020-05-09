@@ -2,7 +2,9 @@ from os import system
 
 from src.GuessingStrategies.SimpleGuessingStrategy import SimpleGuessingStrategy
 from src.HangMan import HangMan
-from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
+from src.Preferences import Preferences
+
+progress_strategy = Preferences.get_progress_preference()
 
 word = input('Enter a word\n')
 
@@ -12,7 +14,6 @@ while not word.isalpha():
 
 system('clear')
 
-progress_strategy = SimpleProgressStrategy(9)
 guessing_strategy = SimpleGuessingStrategy(word)
 
 HangMan(guessing_strategy, progress_strategy).play()
