@@ -1,15 +1,21 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
+from src.GuessingStrategies.WordChangers.CaseInsensitive import CaseInsensitive
+from src.GuessingStrategies.WordChangers.WordChangerInterface import WordChangerInterface
 
-class AbstractGuessingStrategy(ABC):
+
+class AbstractGuessingStrategy(GuessingInterfaceStrategy, ABC):
     _word: str
+    _wordChanger: WordChangerInterface
     _guessedCorrectly: bool = False
     _correctlyGuessedLetters: List[str] = []
     _guesses: List[str] = []
 
     def __init__(self, word: str) -> None:
         self._word = word
+        self._wordChanger = CaseInsensitive()
 
     @abstractmethod
     def guess_is_correct(self, guess: str) -> bool:
@@ -26,7 +32,7 @@ class AbstractGuessingStrategy(ABC):
 
     # Get the word and change it as needed.
     def get_word(self) -> str:
-        return self._word.lower()
+        return self._wordChanger.manipulate(self._word)
 
     def get_good_guesses(self) -> List[str]:
         return self._correctlyGuessedLetters
@@ -39,6 +45,9 @@ class AbstractGuessingStrategy(ABC):
 
         return guessed
 
+    def set_word(self, word: str):
+        self._word = word
+
     # Allow the guess to be overwritten by children.
-    def _manipulate_guess(self, guess: str):
-        return guess.lower()
+    def _manipulate_guess(self, guess: str) -> str:
+        return self._wordChanger.manipulate(guess)

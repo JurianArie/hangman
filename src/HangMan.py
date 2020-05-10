@@ -1,14 +1,14 @@
-from src.GuessingStrategies.AbstractGuessingStrategy import AbstractGuessingStrategy
+from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
 from src.ProgressStrategies.AbstractProgressStrategy import AbstractProgressStrategy
 
 
 class HangMan:
+    _guessingStrategy: GuessingInterfaceStrategy
     _progressStrategy: AbstractProgressStrategy
-    _guessingStrategy: AbstractGuessingStrategy
 
     def __init__(
             self,
-            guessing_strategy: AbstractGuessingStrategy,
+            guessing_strategy: GuessingInterfaceStrategy,
             progress_strategy: AbstractProgressStrategy,
     ) -> None:
         self._guessingStrategy = guessing_strategy

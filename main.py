@@ -14,4 +14,6 @@ while not word.isalpha():
 
 system('clear')
 
-HangMan(guessing_strategy(word), progress_strategy).play()
+guessing_strategy.set_word(word)
+
+HangMan(guessing_strategy, progress_strategy).play()
