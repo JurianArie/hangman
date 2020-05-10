@@ -1,6 +1,8 @@
 from src.GuessingStrategies.ClassicGuessingStrategy import ClassicGuessingStrategy
+from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
 from src.GuessingStrategies.GuessingStrategyFactory import GuessingStrategyFactory
 from src.GuessingStrategies.WordsOnlyGuessingStrategy import WordsOnlyGuessingStrategy
+from src.ProgressStrategies.AbstractProgressStrategy import AbstractProgressStrategy
 from src.ProgressStrategies.ClassicProgressStrategy import ClassicProgressStrategy
 from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
 
@@ -8,7 +10,7 @@ from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
 # TODO: test
 class Preferences:
     @staticmethod
-    def get_progress_preference():
+    def get_progress_preference() -> AbstractProgressStrategy:
         progress_options = {
             '0': SimpleProgressStrategy(9),
             '1': ClassicProgressStrategy(),
@@ -27,7 +29,7 @@ class Preferences:
         return progress_options[progress_option]
 
     @staticmethod
-    def get_guessing_strategy_preference():
+    def get_guessing_strategy_preference() -> GuessingInterfaceStrategy:
         guessing_options = {
             '0': ClassicGuessingStrategy(''),
             '1': WordsOnlyGuessingStrategy(''),

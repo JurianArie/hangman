@@ -1,6 +1,8 @@
 from abc import ABC
 from typing import List
 
+from src.GuessingStrategies.WordChangers.WordChangerInterface import WordChangerInterface
+
 
 class GuessingInterfaceStrategy(ABC):
     def guess_is_correct(self, guess: str) -> bool:
@@ -31,4 +33,7 @@ class GuessingInterfaceStrategy(ABC):
         pass
 
     def _manipulate_guess(self, guess: str) -> str:
+        pass
+
+    def set_word_changer(self, word_changer: WordChangerInterface) -> None:
         pass
