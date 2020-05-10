@@ -6,20 +6,20 @@ from src.GameModes.GameModeInterface import GameModeInterface
 
 
 class GameModeBuilder:
-    _guesser: GameModeInterface
+    __game_mode: GameModeInterface
 
     def __init__(self, guesser: GameModeInterface):
-        self._guesser = guesser
+        self.__game_mode = guesser
 
     def with_hints(self) -> GameModeBuilder:
-        self._guesser = HintingDecorator(self._guesser)
+        self.__game_mode = HintingDecorator(self.__game_mode)
 
         return self
 
     def case_sensitive(self) -> GameModeBuilder:
-        self._guesser = CaseSensitiveDecorator(self._guesser)
+        self.__game_mode = CaseSensitiveDecorator(self.__game_mode)
 
         return self
 
     def build(self) -> GameModeInterface:
-        return self._guesser
+        return self.__game_mode
