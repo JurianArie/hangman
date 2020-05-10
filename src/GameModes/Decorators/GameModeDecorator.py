@@ -2,6 +2,7 @@ from abc import ABC
 from typing import List
 
 from src.GameModes.GameModeInterface import GameModeInterface
+from src.GameModes.WordChangers.WordChangerInterface import WordChangerInterface
 
 
 class GameModeDecorator(GameModeInterface, ABC):
@@ -36,3 +37,6 @@ class GameModeDecorator(GameModeInterface, ABC):
 
     def set_word(self, word: str):
         return self._game_mode.set_word(word)
+
+    def set_word_changer(self, word_changer: WordChangerInterface) -> None:
+        self._game_mode.set_word_changer(word_changer)
