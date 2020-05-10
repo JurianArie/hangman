@@ -1,7 +1,7 @@
-from src.GuessingStrategies.Decorators.GuessingStrategyDecorator import GuessingStrategyDecorator
+from src.GameModes.Decorators.GameModeDecorator import GameModeDecorator
 
 
-class HintingDecorator(GuessingStrategyDecorator):
+class HintingDecorator(GameModeDecorator):
     __repetitive_wrong_guesses = 0
 
     def guess_is_correct(self, guess: str) -> bool:

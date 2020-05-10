@@ -1,12 +1,12 @@
 from abc import ABC, abstractmethod
 from typing import List
 
-from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
-from src.GuessingStrategies.WordChangers.CaseInsensitive import CaseInsensitive
-from src.GuessingStrategies.WordChangers.WordChangerInterface import WordChangerInterface
+from src.GameModes.GameModeInterface import GameModeInterface
+from src.GameModes.WordChangers.CaseInsensitive import CaseInsensitive
+from src.GameModes.WordChangers.WordChangerInterface import WordChangerInterface
 
 
-class AbstractGuessingStrategy(GuessingInterfaceStrategy, ABC):
+class AbstractGameMode(GameModeInterface, ABC):
     _word: str
     _wordChanger: WordChangerInterface
     _guessedCorrectly: bool = False

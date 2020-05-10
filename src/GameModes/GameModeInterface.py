@@ -1,10 +1,10 @@
 from abc import ABC
 from typing import List
 
-from src.GuessingStrategies.WordChangers.WordChangerInterface import WordChangerInterface
+from src.GameModes.WordChangers.WordChangerInterface import WordChangerInterface
 
 
-class GuessingInterfaceStrategy(ABC):
+class GameModeInterface(ABC):
     def guess_is_correct(self, guess: str) -> bool:
         pass
 

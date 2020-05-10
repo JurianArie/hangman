@@ -1,4 +1,4 @@
-from src.GuessingStrategies.WordChangers.WordChangerInterface import WordChangerInterface
+from src.GameModes.WordChangers.WordChangerInterface import WordChangerInterface
 
 
 class CaseInsensitive(WordChangerInterface):

@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from src.GuessingStrategies.WordChangers.CaseInsensitive import CaseInsensitive
+from src.GameModes.WordChangers.CaseInsensitive import CaseInsensitive
 
 
 class TestCaseInsensitive(TestCase):

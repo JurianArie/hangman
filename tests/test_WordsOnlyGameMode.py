@@ -1,11 +1,11 @@
 from unittest import TestCase
 
-from src.GuessingStrategies.WordsOnlyGuessingStrategy import WordsOnlyGuessingStrategy
+from src.GameModes.WordsOnlyGameMode import WordsOnlyGameMode
 
 
-class TestWordsOnlyGuessingStrategy(TestCase):
+class TestWordsOnlyGameMode(TestCase):
     def test_guess_is_correct(self):
-        guesser = WordsOnlyGuessingStrategy('guess')
+        guesser = WordsOnlyGameMode('guess')
         self.assertFalse(guesser.guess_is_correct('g'))
         self.assertFalse(guesser.guess_is_correct('u'))
         self.assertFalse(guesser.guess_is_correct('e'))
@@ -17,7 +17,7 @@ class TestWordsOnlyGuessingStrategy(TestCase):
         self.assertTrue(guesser.guessed_the_word())
 
     def test_it_is_case_insensitive(self):
-        guesser = WordsOnlyGuessingStrategy('blA')
+        guesser = WordsOnlyGameMode('blA')
         self.assertEqual('bla', guesser.get_word())
         self.assertTrue(guesser.guess_is_correct('Bla'))
         self.assertTrue(guesser.guessed_the_word())

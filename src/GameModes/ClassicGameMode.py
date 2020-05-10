@@ -1,7 +1,7 @@
-from src.GuessingStrategies.AbstractGuessingStrategy import AbstractGuessingStrategy
+from src.GameModes.AbstractGameMode import AbstractGameMode
 
 
-class ClassicGuessingStrategy(AbstractGuessingStrategy):
+class ClassicGameMode(AbstractGameMode):
     def guess_is_correct(self, guess: str) -> bool:
         guess = self._manipulate_guess(guess)
 

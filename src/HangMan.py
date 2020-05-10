@@ -1,17 +1,17 @@
-from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
+from src.GameModes.GameModeInterface import GameModeInterface
 from src.ProgressStrategies.AbstractProgressStrategy import AbstractProgressStrategy
 
 
 class HangMan:
-    _guessingStrategy: GuessingInterfaceStrategy
+    _gameMode: GameModeInterface
     _progressStrategy: AbstractProgressStrategy
 
     def __init__(
             self,
-            guessing_strategy: GuessingInterfaceStrategy,
+            game_mode: GameModeInterface,
             progress_strategy: AbstractProgressStrategy,
     ) -> None:
-        self._guessingStrategy = guessing_strategy
+        self._gameMode = game_mode
         self._progressStrategy = progress_strategy
 
     def play(self) -> None:
@@ -23,15 +23,15 @@ class HangMan:
                 continue
 
             # Don't allow the same word/letter to entered twice.
-            if self._guessingStrategy.guess_has_been_tried(guess):
+            if self._gameMode.guess_has_been_tried(guess):
                 print('You\'ve already tried that')
                 continue
 
             # Only decrease the tries left on a wrong guess.
-            if not self._guessingStrategy.guess_is_correct(guess):
+            if not self._gameMode.guess_is_correct(guess):
                 self._progressStrategy.decrease_tries_left()
 
-            if self._guessingStrategy.guessed_the_word():
+            if self._gameMode.guessed_the_word():
                 break
 
             self.draw_progress()
@@ -41,16 +41,16 @@ class HangMan:
         self.print_result()
 
     def draw_progress(self):
-        word = self._guessingStrategy.get_word()
-        good_guess = self._guessingStrategy.get_good_guesses()
+        word = self._gameMode.get_word()
+        good_guess = self._gameMode.get_good_guesses()
 
         print(self._progressStrategy.draw_progress(word, good_guess))
 
     def print_result(self):
-        if self._guessingStrategy.guessed_the_word():
+        if self._gameMode.guessed_the_word():
             print('You won!')
         else:
-            print('You lost! The word was: %s' % self._guessingStrategy.get_word())
+            print('You lost! The word was: %s' % self._gameMode.get_word())
 
     def print_tries_left(self):
         if self.has_tries_left():
