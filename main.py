@@ -1,10 +1,11 @@
 from os import system
 
+from src.GuessingPreferences import GuessingPreferences
 from src.HangMan import HangMan
-from src.Preferences import Preferences
+from src.ProgressPreferences import ProgressPreferences
 
-progress_strategy = Preferences.get_progress_preference()
-guessing_strategy = Preferences.get_guessing_strategy_preference()
+progress_strategy = ProgressPreferences().get_preference()
+guessing_strategy = GuessingPreferences().get_preference()
 
 word = input('Enter a word\n')
 
