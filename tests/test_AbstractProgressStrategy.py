@@ -8,6 +8,11 @@ class TestAbstractProgressStrategy(TestCase):
         dummy.decrease_tries_left()
         self.assertEqual(8, dummy.get_tries_left())
 
+    def test_it_wont_should_not_decrease_on_correct_guesses(self):
+        dummy = DummyProgressStrategy(9)
+        self.assertFalse(dummy.should_decrease(True))
+        self.assertTrue(dummy.should_decrease(False))
+
 
 from typing import List
 

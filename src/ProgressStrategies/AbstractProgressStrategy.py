@@ -19,4 +19,4 @@ class AbstractProgressStrategy(ABC):
         return self._triesLeft
 
     def should_decrease(self, guess_was_correct: bool) -> bool:
-        return guess_was_correct
+        return not guess_was_correct
