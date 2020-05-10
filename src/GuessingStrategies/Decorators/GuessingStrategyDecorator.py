@@ -1,14 +1,13 @@
 from abc import ABC
 from typing import List
 
-from src.GuessingStrategies.AbstractGuessingStrategy import AbstractGuessingStrategy
 from src.GuessingStrategies.GuessingInterfaceStrategy import GuessingInterfaceStrategy
 
 
 class GuessingStrategyDecorator(GuessingInterfaceStrategy, ABC):
-    _guessingStrategy: AbstractGuessingStrategy
+    _guessingStrategy: GuessingInterfaceStrategy
 
-    def __init__(self, guessing_strategy: AbstractGuessingStrategy):
+    def __init__(self, guessing_strategy: GuessingInterfaceStrategy):
         self._guessingStrategy = guessing_strategy
 
     def guess_is_correct(self, guess: str) -> bool:

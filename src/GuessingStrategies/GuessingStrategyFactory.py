@@ -20,3 +20,15 @@ class GuessingStrategyFactory:
     @staticmethod
     def classic_with_hints(word: str):
         return HintingDecorator(ClassicGuessingStrategy(word))
+
+    @staticmethod
+    def case_sensitive_words_only_with_hints(word: str):
+        return HintingDecorator(
+            CaseSensitiveDecorator(WordsOnlyGuessingStrategy(word))
+        )
+
+    @staticmethod
+    def case_sensitive_classic_with_hints(word: str):
+        return HintingDecorator(
+            CaseSensitiveDecorator(ClassicGuessingStrategy(word))
+        )
