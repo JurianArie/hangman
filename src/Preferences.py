@@ -34,25 +34,29 @@ class Preferences:
     def get_guessing_strategy_preference() -> GuessingInterfaceStrategy:
         guessing_options = {
             '0': ClassicGuessingStrategy(''),
-            '1': WordsOnlyGuessingStrategy(''),
+            '1': GuessingStrategyFactory.classic_with_hints(''),
             '2': GuessingStrategyFactory.case_sensitive_classic(''),
-            '3': GuessingStrategyFactory.case_sensitive_words_only(''),
-            '4': GuessingStrategyFactory.classic_with_hints(''),
+            '3': GuessingStrategyFactory.case_sensitive_classic_with_hints(''),
+
+            '4': WordsOnlyGuessingStrategy(''),
             '5': GuessingStrategyFactory.words_only_with_hints(''),
-            '6': GuessingStrategyFactory.case_sensitive_classic_with_hints(''),
+            '6': GuessingStrategyFactory.case_sensitive_words_only(''),
             '7': GuessingStrategyFactory.case_sensitive_words_only_with_hints(''),
+
             '8': 'random',
         }
 
         guessing_option_names = {
             '0': 'classic',
-            '1': 'words only',
+            '1': 'classic with hints',
             '2': 'case sensitive classic',
-            '3': 'case sensitive words only',
-            '4': 'classic with hints',
+            '3': 'case sensitive classic with hints',
+
+            '4': 'words only',
             '5': 'words only with hints',
-            '6': 'case sensitive classic with hints',
+            '6': 'case sensitive words only',
             '7': 'case sensitive words only with hints',
+
             '8': 'random',
         }
 

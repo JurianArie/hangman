@@ -2,17 +2,22 @@
 
 The classic hang man game with different game modes such as:
 * Classic
-* Words only
-* Case sensitive classic
-* Case sensitive words only
 * Classic with hints
-* Words only with hints
+* Case sensitive classic
 * Case sensitive classic with hints
+
+
+* Words only
+* Words only with hints
+* Case sensitive words only
 * Case sensitive words only with hints
 
+
+* Random
+
 And with display two display options:
-* Classic
-* Simple
+* Classic (text with hang man)
+* Simple (text only)
 
 Playing the game:
 ```bash
