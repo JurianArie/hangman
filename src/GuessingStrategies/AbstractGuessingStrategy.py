@@ -37,6 +37,9 @@ class AbstractGuessingStrategy(GuessingInterfaceStrategy, ABC):
     def get_good_guesses(self) -> List[str]:
         return self._correctlyGuessedLetters
 
+    def add_good_guess(self, letter: str) -> None:
+        return self._correctlyGuessedLetters.append(letter)
+
     def guessed_the_word(self) -> bool:
         return self._guessedCorrectly
 

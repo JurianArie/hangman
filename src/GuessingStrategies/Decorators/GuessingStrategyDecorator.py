@@ -26,6 +26,9 @@ class GuessingStrategyDecorator(GuessingInterfaceStrategy, ABC):
     def get_good_guesses(self) -> List[str]:
         return self._guessingStrategy.get_good_guesses()
 
+    def add_good_guess(self, letter: str) -> None:
+        return self._guessingStrategy.add_good_guess(letter)
+
     def guessed_the_word(self) -> bool:
         return self._guessingStrategy.guessed_the_word()
 
@@ -34,6 +37,3 @@ class GuessingStrategyDecorator(GuessingInterfaceStrategy, ABC):
 
     def set_word(self, word: str):
         return self._guessingStrategy.set_word(word)
-
-    def _manipulate_guess(self, guess: str) -> str:
-        return self._guessingStrategy._manipulate_guess(guess)

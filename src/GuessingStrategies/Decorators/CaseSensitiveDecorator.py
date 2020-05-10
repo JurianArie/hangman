@@ -5,5 +5,5 @@ from src.GuessingStrategies.WordChangers.CaseSensitive import CaseSensitive
 
 class CaseSensitiveDecorator(GuessingStrategyDecorator):
     def __init__(self, guessing_strategy: AbstractGuessingStrategy):
-        guessing_strategy.set_word_changer(CaseSensitive())
         super().__init__(guessing_strategy)
+        self._guessingStrategy.set_word_changer(CaseSensitive())

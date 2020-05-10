@@ -11,7 +11,7 @@ class ClassicGuessingStrategy(AbstractGuessingStrategy):
         self._guesses.append(guess)
 
         if len(guess) == 1 and guess in self.get_word():
-            self._correctlyGuessedLetters.append(guess)
+            self.add_good_guess(guess)
 
             # Always return true.
             return self.all_letters_have_been_guessed() or True

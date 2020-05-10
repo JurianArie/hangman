@@ -18,6 +18,9 @@ class GuessingInterfaceStrategy(ABC):
     def get_good_guesses(self) -> List[str]:
         pass
 
+    def add_good_guess(self, letter: str) -> None:
+        pass
+
     def guessed_the_word(self) -> bool:
         pass
 
