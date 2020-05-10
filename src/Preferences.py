@@ -33,6 +33,8 @@ class Preferences:
             '1': WordsOnlyGuessingStrategy(''),
             '2': GuessingStrategyFactory.case_sensitive_classic(''),
             '3': GuessingStrategyFactory.case_sensitive_words_only(''),
+            '4': GuessingStrategyFactory.classic_with_hints(''),
+            '5': GuessingStrategyFactory.words_only_with_hints(''),
         }
 
         print('Which guessing mode would you like?')
@@ -40,6 +42,8 @@ class Preferences:
         print('1: words only')
         print('2: case sensitive classic')
         print('3: case sensitive words only')
+        print('4: classic with hints')
+        print('5: words only with hints')
 
         guessing_option = input('Enter mode:\n')
 
