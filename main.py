@@ -1,6 +1,6 @@
 from os import system
 
-from src.GuessingStrategies.SimpleGuessingStrategy import SimpleGuessingStrategy
+from src.GuessingStrategies.ClassicGuessingStrategy import ClassicGuessingStrategy
 from src.HangMan import HangMan
 from src.Preferences import Preferences
 
@@ -14,6 +14,6 @@ while not word.isalpha():
 
 system('clear')
 
-guessing_strategy = SimpleGuessingStrategy(word)
+guessing_strategy = ClassicGuessingStrategy(word)
 
 HangMan(guessing_strategy, progress_strategy).play()

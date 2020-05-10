@@ -1,10 +1,7 @@
 from src.GuessingStrategies.AbstractGuessingStrategy import AbstractGuessingStrategy
 
 
-class SimpleGuessingStrategy(AbstractGuessingStrategy):
-    def __init__(self, word: str):
-        super().__init__(word)
-
+class ClassicGuessingStrategy(AbstractGuessingStrategy):
     def guess_is_correct(self, guess: str) -> bool:
         self.set_guessed_correctly(False)
         guess = guess.lower()
