@@ -21,6 +21,9 @@ class AbstractGameMode(GameModeInterface, ABC):
     def guess_is_correct(self, guess: str) -> bool:
         pass
 
+    def guess_is_allowed(self, guess: str) -> bool:
+        return guess.isalpha()
+
     def guess_has_been_tried(self, guess: str) -> bool:
         return self._manipulate_guess(guess) in self._guesses
 

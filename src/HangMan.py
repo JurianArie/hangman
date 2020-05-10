@@ -18,8 +18,8 @@ class HangMan:
         while self.has_tries_left():
             guess = input('Make a new guess\n')
 
-            if not guess.isalpha():
-                print('Only letters are allowed')
+            if not self.guess_is_allowed(guess):
+                print('Guess is invalid')
                 continue
 
             # Don't allow the same word/letter to entered twice.
@@ -27,7 +27,9 @@ class HangMan:
                 print('You\'ve already tried that')
                 continue
 
-            self.decrease_tries(guess)
+            guess_was_correct = self.guess_was_correct(guess)
+            if self._progressStrategy.should_decrease(guess_was_correct):
+                self._progressStrategy.decrease_tries_left()
 
             if self._gameMode.guessed_the_word():
                 break
@@ -38,9 +40,8 @@ class HangMan:
 
         self.print_result()
 
-    def decrease_tries(self, guess):
-        if self._progressStrategy.should_decrease(self.guess_was_correct(guess)):
-            self._progressStrategy.decrease_tries_left()
+    def guess_is_allowed(self, guess):
+        return self._gameMode.guess_is_allowed(guess)
 
     def guess_was_correct(self, guess):
         return self._gameMode.guess_is_correct(guess)

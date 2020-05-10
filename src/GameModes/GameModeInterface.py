@@ -8,6 +8,9 @@ class GameModeInterface(ABC):
     def guess_is_correct(self, guess: str) -> bool:
         pass
 
+    def guess_is_allowed(self, guess: str) -> bool:
+        pass
+
     def guess_has_been_tried(self, guess: str) -> bool:
         pass
 

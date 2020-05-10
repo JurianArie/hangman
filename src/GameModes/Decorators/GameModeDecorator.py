@@ -14,6 +14,9 @@ class GameModeDecorator(GameModeInterface, ABC):
     def guess_is_correct(self, guess: str) -> bool:
         return self._game_mode.guess_is_correct(guess)
 
+    def guess_is_allowed(self, guess: str) -> bool:
+        return self._game_mode.guess_is_allowed(guess)
+
     def guess_has_been_tried(self, guess: str) -> bool:
         return self._game_mode.guess_has_been_tried(guess)
 
