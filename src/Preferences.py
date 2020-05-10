@@ -1,3 +1,5 @@
+from src.GuessingStrategies.ClassicGuessingStrategy import ClassicGuessingStrategy
+from src.GuessingStrategies.WordsOnlyGuessingStrategy import WordsOnlyGuessingStrategy
 from src.ProgressStrategies.ClassicProgressStrategy import ClassicProgressStrategy
 from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
 
@@ -22,3 +24,22 @@ class Preferences:
             progress_option = '0'
 
         return progress_options[progress_option]
+
+    @staticmethod
+    def get_guessing_strategy_preference():
+        guessing_options = {
+            '0': ClassicGuessingStrategy,
+            '1': WordsOnlyGuessingStrategy,
+        }
+
+        print('Which guessing mode would you like?')
+        print('0: classic')
+        print('1: words only')
+
+        guessing_option = input('Enter mode:\n')
+
+        if guessing_option not in guessing_options:
+            # Default to the simple mode.
+            guessing_option = '0'
+
+        return guessing_options[guessing_option]
