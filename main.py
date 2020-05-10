@@ -4,17 +4,29 @@ from src.GameModePreferences import GameModePreferences
 from src.HangMan import HangMan
 from src.ProgressPreferences import ProgressPreferences
 
-progress_strategy = ProgressPreferences().get_preference()
-game_mode = GameModePreferences().get_preference()
+wantsToPlay: bool = True
+times_played: int = 0
 
-word = input('Enter a word\n')
+while wantsToPlay:
+    if times_played == 0 or input('Do you want to keep your settings? y/n:') != 'y':
+        progress_strategy = ProgressPreferences().get_preference()
+        game_mode = GameModePreferences().get_preference()
 
-while not word.isalpha():
-    print('Only letters are allowed')
     word = input('Enter a word\n')
 
-system('clear')
+    while not word.isalpha():
+        print('Only letters are allowed')
+        word = input('Enter a word\n')
 
-game_mode.set_word(word)
+    system('clear')
 
-HangMan(game_mode, progress_strategy).play()
+    game_mode.set_word(word)
+
+    hang_man = HangMan(game_mode, progress_strategy)
+    hang_man.play()
+
+    if input('Want to play again? y/n:') != 'y':
+        wantsToPlay = False
+
+    hang_man.reset()
+    times_played += 1

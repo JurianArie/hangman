@@ -43,3 +43,7 @@ class GameModeDecorator(GameModeInterface, ABC):
 
     def set_word_changer(self, word_changer: WordChangerInterface) -> None:
         self._game_mode.set_word_changer(word_changer)
+
+    def reset(self) -> None:
+        self._game_mode.reset()
+

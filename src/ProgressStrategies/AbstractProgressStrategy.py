@@ -6,9 +6,11 @@ from src.ProgressStrategies.ProgressStrategyInterface import ProgressStrategyInt
 
 class AbstractProgressStrategy(ProgressStrategyInterface, ABC):
     _triesLeft: int
+    _original_tries_left: int
 
     def __init__(self, max_ties: int):
         self._triesLeft = max_ties
+        self._original_tries_left = max_ties
 
     @abstractmethod
     def draw_progress(self, word: str, good_guesses: List[str]) -> str:
@@ -25,3 +27,6 @@ class AbstractProgressStrategy(ProgressStrategyInterface, ABC):
 
     def should_decrease(self, guess_was_correct: bool) -> bool:
         return not guess_was_correct
+
+    def reset(self) -> None:
+        self._triesLeft = self._original_tries_left

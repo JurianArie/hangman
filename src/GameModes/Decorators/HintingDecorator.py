@@ -35,3 +35,7 @@ class HintingDecorator(GameModeDecorator):
                 return letter
 
         return ''
+
+    def reset(self) -> None:
+        self.__repetitive_wrong_guesses = 0
+        super().reset()

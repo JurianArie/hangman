@@ -1,15 +1,15 @@
 from src.GameModes.GameModeInterface import GameModeInterface
-from src.ProgressStrategies.AbstractProgressStrategy import AbstractProgressStrategy
+from src.ProgressStrategies.ProgressStrategyInterface import ProgressStrategyInterface
 
 
 class HangMan:
     _gameMode: GameModeInterface
-    _progressStrategy: AbstractProgressStrategy
+    _progressStrategy: ProgressStrategyInterface
 
     def __init__(
             self,
             game_mode: GameModeInterface,
-            progress_strategy: AbstractProgressStrategy,
+            progress_strategy: ProgressStrategyInterface,
     ) -> None:
         self._gameMode = game_mode
         self._progressStrategy = progress_strategy
@@ -64,3 +64,7 @@ class HangMan:
 
     def has_tries_left(self) -> bool:
         return self._progressStrategy.get_tries_left() > 0
+
+    def reset(self) -> None:
+        self._gameMode.reset()
+        self._progressStrategy.reset()

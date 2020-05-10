@@ -40,3 +40,6 @@ class GameModeInterface(ABC):
 
     def set_word_changer(self, word_changer: WordChangerInterface) -> None:
         pass
+
+    def reset(self) -> None:
+        pass

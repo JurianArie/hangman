@@ -24,3 +24,7 @@ class ProgressStrategyDecorator(ProgressStrategyInterface, ABC):
 
     def should_decrease(self, guess_was_correct: bool) -> bool:
         return self._progress_strategy.should_decrease(guess_was_correct)
+
+    def reset(self) -> None:
+        return self._progress_strategy.reset()
+

@@ -24,3 +24,8 @@ class PayToWin(ProgressStrategyDecorator):
             return self.__initial_price
 
         return self.__bought_lives * 2
+
+    def reset(self) -> None:
+        self.__bought_lives = 0
+        self.__initial_price = 1
+        super().reset()

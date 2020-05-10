@@ -17,3 +17,6 @@ class ProgressStrategyInterface(ABC):
 
     def should_decrease(self, guess_was_correct: bool) -> bool:
         pass
+
+    def reset(self) -> None:
+        pass

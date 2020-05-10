@@ -60,3 +60,8 @@ class AbstractGameMode(GameModeInterface, ABC):
 
     def set_word_changer(self, word_changer: WordChangerInterface):
         self._wordChanger = word_changer
+
+    def reset(self) -> None:
+        self._guessedCorrectly = False
+        self._correctlyGuessedLetters = list()
+        self._guesses = list()
