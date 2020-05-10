@@ -23,4 +23,4 @@ class PayToWin(ProgressStrategyDecorator):
         if not self.__bought_lives:
             return self.__initial_price
 
-        return self.__bought_lives ** 2
+        return self.__bought_lives * 2
