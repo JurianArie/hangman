@@ -51,3 +51,6 @@ class AbstractGuessingStrategy(GuessingInterfaceStrategy, ABC):
     # Allow the guess to be overwritten by children.
     def _manipulate_guess(self, guess: str) -> str:
         return self._wordChanger.manipulate(guess)
+
+    def set_word_changer(self, word_changer: WordChangerInterface):
+        self._wordChanger = word_changer

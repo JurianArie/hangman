@@ -1,4 +1,5 @@
 from src.GuessingStrategies.ClassicGuessingStrategy import ClassicGuessingStrategy
+from src.GuessingStrategies.GuessingStrategyFactory import GuessingStrategyFactory
 from src.GuessingStrategies.WordsOnlyGuessingStrategy import WordsOnlyGuessingStrategy
 from src.ProgressStrategies.ClassicProgressStrategy import ClassicProgressStrategy
 from src.ProgressStrategies.SimpleProgressStrategy import SimpleProgressStrategy
@@ -28,13 +29,17 @@ class Preferences:
     @staticmethod
     def get_guessing_strategy_preference():
         guessing_options = {
-            '0': ClassicGuessingStrategy,
-            '1': WordsOnlyGuessingStrategy,
+            '0': ClassicGuessingStrategy(''),
+            '1': WordsOnlyGuessingStrategy(''),
+            '2': GuessingStrategyFactory.case_sensitive_classic(''),
+            '3': GuessingStrategyFactory.case_sensitive_words_only(''),
         }
 
         print('Which guessing mode would you like?')
         print('0: classic')
         print('1: words only')
+        print('2: case sensitive classic')
+        print('3: case sensitive words only')
 
         guessing_option = input('Enter mode:\n')
 
