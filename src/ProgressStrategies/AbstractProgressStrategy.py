@@ -1,8 +1,10 @@
 from abc import ABC, abstractmethod
 from typing import List
 
+from src.ProgressStrategies.ProgressStrategyInterface import ProgressStrategyInterface
 
-class AbstractProgressStrategy(ABC):
+
+class AbstractProgressStrategy(ProgressStrategyInterface, ABC):
     _triesLeft: int
 
     def __init__(self, max_ties: int):
@@ -14,6 +16,9 @@ class AbstractProgressStrategy(ABC):
 
     def decrease_tries_left(self) -> None:
         self._triesLeft = self._triesLeft - 1
+
+    def increase_tries_left(self) -> None:
+        self._triesLeft = self._triesLeft + 1
 
     def get_tries_left(self) -> int:
         return self._triesLeft

@@ -16,8 +16,12 @@ The classic hang man game with different game modes such as:
 * Random
 
 And with display two display options:
-* Classic (text with hang man)
-* Simple (text only)
+* Classic
+* Classic pay to win
+
+
+* Simple
+* Simple pay to win
 
 Playing the game:
 ```bash
