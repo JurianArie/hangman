@@ -3,20 +3,19 @@ from src.GuessingStrategies.AbstractGuessingStrategy import AbstractGuessingStra
 
 class ClassicGuessingStrategy(AbstractGuessingStrategy):
     def guess_is_correct(self, guess: str) -> bool:
-        self.set_guessed_correctly(False)
-        guess = guess.lower()
+        guess = self._manipulate_guess(guess)
 
         if self.guess_has_been_tried(guess):
             return False
 
         self._guesses.append(guess)
 
-        if len(guess) == 1 and guess in self._word:
+        if len(guess) == 1 and guess in self.get_word():
             self._correctlyGuessedLetters.append(guess)
 
             # Always return true.
             return self.all_letters_have_been_guessed() or True
-        elif guess == self._word:
+        elif guess == self.get_word():
             return self.set_guessed_correctly(True)
 
-        return self.all_letters_have_been_guessed()
+        return self.set_guessed_correctly(False)
