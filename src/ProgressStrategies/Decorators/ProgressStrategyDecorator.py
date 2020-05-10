@@ -1,4 +1,4 @@
-from abc import abstractmethod, ABC
+from abc import ABC
 from typing import List
 
 from src.ProgressStrategies.ProgressStrategyInterface import ProgressStrategyInterface
@@ -10,7 +10,6 @@ class ProgressStrategyDecorator(ProgressStrategyInterface, ABC):
     def __init__(self, progress_strategy: ProgressStrategyInterface):
         self._progress_strategy = progress_strategy
 
-    @abstractmethod
     def draw_progress(self, word: str, good_guesses: List[str]) -> str:
         return self._progress_strategy.draw_progress(word, good_guesses)
 

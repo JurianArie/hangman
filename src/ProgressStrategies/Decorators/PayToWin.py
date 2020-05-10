@@ -1,15 +1,9 @@
-from typing import List
-
 from src.ProgressStrategies.Decorators.ProgressStrategyDecorator import ProgressStrategyDecorator
-from src.ProgressStrategies.WordRevealer import WordRevealer
 
 
 class PayToWin(ProgressStrategyDecorator):
     __bought_lives: int = 0
     __initial_price: int = 1
-
-    def draw_progress(self, word: str, good_guesses: List[str]) -> str:
-        return WordRevealer.reveal(word, good_guesses)
 
     def should_decrease(self, guess_was_correct: bool) -> bool:
         if guess_was_correct:
