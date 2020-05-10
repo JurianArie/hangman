@@ -53,10 +53,13 @@ class HangMan:
         print(self._progressStrategy.draw_progress(word, good_guess))
 
     def print_result(self):
-        if self._gameMode.guessed_the_word():
+        if self.won_the_game():
             print('You won!')
         else:
             print('You lost! The word was: %s' % self._gameMode.get_word())
+
+    def won_the_game(self) -> bool:
+        return self._gameMode.guessed_the_word()
 
     def print_tries_left(self):
         if self.has_tries_left():
