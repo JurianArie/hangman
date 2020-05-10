@@ -27,9 +27,7 @@ class HangMan:
                 print('You\'ve already tried that')
                 continue
 
-            # Only decrease the tries left on a wrong guess.
-            if not self._gameMode.guess_is_correct(guess):
-                self._progressStrategy.decrease_tries_left()
+            self.decrease_tries(guess)
 
             if self._gameMode.guessed_the_word():
                 break
@@ -39,6 +37,13 @@ class HangMan:
             self.print_tries_left()
 
         self.print_result()
+
+    def decrease_tries(self, guess):
+        if self._progressStrategy.should_decrease(self.guess_was_correct(guess)):
+            self._progressStrategy.decrease_tries_left()
+
+    def guess_was_correct(self, guess):
+        return self._gameMode.guess_is_correct(guess)
 
     def draw_progress(self):
         word = self._gameMode.get_word()

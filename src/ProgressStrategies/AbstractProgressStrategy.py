@@ -7,7 +7,6 @@ class AbstractProgressStrategy(ABC):
 
     def __init__(self, max_ties: int):
         self._triesLeft = max_ties
-        super().__init__()
 
     @abstractmethod
     def draw_progress(self, word: str, good_guesses: List[str]) -> str:
@@ -18,3 +17,6 @@ class AbstractProgressStrategy(ABC):
 
     def get_tries_left(self) -> int:
         return self._triesLeft
+
+    def should_decrease(self, guess_was_correct: bool) -> bool:
+        return guess_was_correct
