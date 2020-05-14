@@ -15,7 +15,7 @@ The classic hang man game with different game modes such as:
 
 * Random
 
-And with display two display options:
+And with display various progress options:
 * Classic
 * Classic pay to win
 
