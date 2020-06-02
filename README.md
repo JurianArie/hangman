@@ -1,6 +1,6 @@
 # Hang man
 
-The classic hang man game with different game modes such as:
+The classic hang man game with game modes such as:
 * Classic
 * Classic with hints
 * Case sensitive classic
@@ -15,7 +15,7 @@ The classic hang man game with different game modes such as:
 
 * Random
 
-And with display various progress options:
+And with various progress options:
 * Classic
 * Classic pay to win
 
